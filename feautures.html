@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartGadget Pro - Features</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+        .phone-image {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+            animation: rotate 5s linear infinite; /* Rotating animation */
+        }
+
+        /* Keyframes for rotation effect */
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>SmartGadget Pro Features</h2>
+
+        <!-- Rotating 3D Phone Image -->
+        <img src="https://images-na.ssl-images-amazon.com/images/G/01/wireless/detail-page/samsung-galaxySii-skyrocket-att-main-angle-lg.jpg" 
+             alt="3D Rotating Smartphone" class="phone-image">
+
+        <ul class="list-group text-start mt-3">
+            <li class="list-group-item">🔥 High-Performance Processor</li>
+            <li class="list-group-item">🔋 Long-Lasting Battery Life</li>
+            <li class="list-group-item">📷 108MP AI Camera</li>
+            <li class="list-group-item">🌊 Water & Dust Resistant</li>
+            <li class="list-group-item">📡 5G & WiFi 6 Support</li>
+        </ul>
+        <a href="products.html" class="btn btn-success mt-3">Back to Home</a>
+    </div>
+</body>
+</html>

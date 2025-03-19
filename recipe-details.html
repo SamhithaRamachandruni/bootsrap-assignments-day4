@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+        }
+        .recipe-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .recipe-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .recipe-video {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Tasty Recipes</a>
+        </div>
+    </nav>
+
+    <div class="container recipe-container">
+        <h1 id="recipe-title"></h1>
+        <img id="recipe-image" class="recipe-image" src="" alt="Recipe Image">
+        <p id="recipe-description"></p>
+        <h3>Instructions</h3>
+        <p id="recipe-instructions"></p>
+        <iframe id="recipe-video" class="recipe-video" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        const recipes = {
+            pancakes: {
+                title: "Fluffy Pancakes",
+                image: "https://blog.williams-sonoma.com/wp-content/uploads/2020/02/stack-pancakes-blog-post-1000px.jpg",
+                description: "Soft and fluffy pancakes made with eggs, milk, and flour.",
+                instructions: "1. Mix flour, eggs, and milk. 2. Heat a pan and pour batter. 3. Flip and cook until golden brown.",
+                video: "https://www.youtube.com/embed/FLd00Bx4tOk"
+            },
+            oatmeal: {
+                title: "Healthy Oatmeal Bowl",
+                image: "https://joybauer.com/wp-content/uploads/2017/12/Oatmeal-with-berries2.jpg",
+                description: "A nutritious bowl of oats topped with fruits and honey.",
+                instructions: "1. Boil oats with milk/water. 2. Add fruits and honey. 3. Serve warm.",
+                video: "https://www.youtube.com/embed/HA2yxlVEOso"
+            },
+            smoothie: {
+                title: "Berry Smoothie",
+                image: "https://www.thespruceeats.com/thmb/RTH5cMhDMvK61a4okKEUqneMtxU=/3909x2601/filters:fill(auto,1)/banana-smoothie-recipes-759606-hero-01-d2abaa79f3204030a0ec0a8940456acc.jpg",
+                description: "A refreshing smoothie made with mixed berries and yogurt.",
+                instructions: "1. Blend berries and yogurt. 2. Add ice cubes. 3. Serve chilled.",
+                video: "https://www.youtube.com/embed/EmhmyIbD8ic"
+            },
+            grilled_chicken_salad: {
+                title: "Grilled Chicken Salad",
+                image: "https://www.simplyrecipes.com/thmb/7KwExJ0ZbVEmlxBaMsgmrBTi9M4=/4667x3111/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Grilled-BBQ-Chicken-LEAD-10-03fd9892eaae4ce1a8a3f4c949657cfd.jpg",
+                description: "A delicious and healthy grilled chicken salad with fresh vegetables.",
+                instructions: "1. Grill chicken. 2. Chop veggies. 3. Mix and serve.",
+                video: "https://www.youtube.com/embed/T_oB4vQXGuI"
+            },
+            club_sandwich: {
+                title: "Club Sandwich",
+                image: "https://tse2.mm.bing.net/th?id=OIP.X0qmfZ2JOaGtTgUeF40g-wHaE8&pid=Api&P=0&h=180",
+                description: "A classic club sandwich with layers of turkey, bacon, lettuce, and tomato.",
+                instructions: "1. Toast bread. 2. Layer ingredients. 3. Serve with fries.",
+                video: "https://www.youtube.com/embed/S_1_ZSMxRfg"
+            },
+            spaghetti_bolognese: {
+                title: "Spaghetti Bolognese",
+                image: "https://www.archanaskitchen.com/images/archanaskitchen/World_Pastas_Pizzas/The_Best_Spicy_Spaghetti_Bolognese_Recipe-1.jpg",
+                description: "A rich and hearty spaghetti with bolognese sauce.",
+                instructions: "1. Cook pasta. 2. Prepare sauce. 3. Mix and serve.",
+                video: "https://www.youtube.com/embed/AW4x2Vsnfws"
+            },
+            grilled_salmon: {
+                title: "Grilled Salmon",
+                image: "https://www.cookingclassy.com/wp-content/uploads/2018/05/grilled-salmon-9.jpg",
+                description: "A flavorful grilled salmon dish served with a side of vegetables.",
+                instructions: "1. Season salmon. 2. Grill to perfection. 3. Serve with veggies.",
+                video: "https://www.youtube.com/embed/thRj3P0D0AE"
+            }
+        };
+
+        function getRecipeFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('recipe');
+        }
+
+        function loadRecipe() {
+            const recipeName = getRecipeFromURL();
+            const recipe = recipes[recipeName];
+
+            if (recipe) {
+                document.getElementById('recipe-title').innerText = recipe.title;
+                document.getElementById('recipe-image').src = recipe.image;
+                document.getElementById('recipe-description').innerText = recipe.description;
+                document.getElementById('recipe-instructions').innerText = recipe.instructions;
+                document.getElementById('recipe-video').src = recipe.video;
+            } else {
+                document.querySelector('.recipe-container').innerHTML = "<h2>Recipe Not Found</h2>";
+            }
+        }
+
+        window.onload = loadRecipe;
+    </script>
+
+</body>
+</html>

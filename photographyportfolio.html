@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Photography Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* General Styles */
+        body { font-family: 'Poppins', sans-serif; background-color: #121212; color: #ddd; }
+        
+        /* Header */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+                        url('https://www.hindustantimes.com/ht-img/img/2023/08/17/1600x900/dariusz-sankowski-mj2NwYH3wBA-unsplash_1692275608596_1692275643899.jpg')
+                        center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-text {
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        /* Navbar */
+        .navbar { background: #1e1e1e; }
+        .navbar-brand, .nav-link { color: #f5a623 !important; }
+        .nav-link:hover { color: #ffffff !important; }
+
+        /* Gallery */
+        .card {
+            background: #222;
+            color: white;
+            border: none;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        /* About */
+        .about-section {
+            background: #1e1e1e;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        /* Contact */
+        .form-control { background: #222; color: white; border: 1px solid #f5a623; }
+        .form-control:focus { background: #333; border-color: #f5a623; }
+        .btn-primary { background: #f5a623; border: none; }
+        .btn-primary:hover { background: #ffb142; }
+        
+        /* Footer */
+        footer {
+            background: #1e1e1e;
+            text-align: center;
+            padding: 20px;
+        }
+        footer a { color: #f5a623; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="hero">
+    <div class="hero-text">
+        <h1>R SAMHITHA</h1>
+        <p>Welcome to My Photography Portfolio</p>
+    </div>
+</header>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">Photography</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="explore.html">Explore</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="previewImage" src="" class="img-fluid" alt="Preview">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery Section -->
+<section id="gallery" class="container my-5">
+    <h2 class="text-center">Gallery</h2>
+    <div class="row g-4">
+        <!-- 10 Image Cards -->
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/image1.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/image1.jpeg" alt="Nature" class="card-img-top">
+                <div class="card-body"><p class="card-text">Nature</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.12.31 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.12.31 PM.jpeg" alt="Forest" class="card-img-top">
+                <div class="card-body"><p class="card-text">Forest</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.13.31 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.13.31 PM.jpeg" alt="Portrait" class="card-img-top">
+                <div class="card-body"><p class="card-text">Portrait</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.14.32 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.14.32 PM.jpeg" alt="Wildlife" class="card-img-top">
+                <div class="card-body"><p class="card-text">Wildlife</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.15.14 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.15.14 PM.jpeg" alt="Stadium" class="card-img-top">
+                <div class="card-body"><p class="card-text">Stadium</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.16.16 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.16.16 PM.jpeg" alt="Lake" class="card-img-top">
+                <div class="card-body"><p class="card-text">Lake</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.17.05 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.17.05 PM.jpeg" alt="Water Falls" class="card-img-top">
+                <div class="card-body"><p class="card-text">Water Falls</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.17.48 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.17.48 PM.jpeg" alt="Night Sky" class="card-img-top">
+                <div class="card-body"><p class="card-text">Night Sky</p></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" onclick="showImage('C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.21.17 PM.jpeg')">
+                <img src="C:/Users/rsamh/Downloads/WhatsApp Image 2025-03-14 at 12.21.17 PM.jpeg" alt="Sunset" class="card-img-top">
+                <div class="card-body"><p class="card-text">Sunset</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function showImage(imageSrc) {
+        document.getElementById("previewImage").src = imageSrc;
+        var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        myModal.show();
+    }
+</script>
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <h2>About Me</h2>
+<p>Hey there! I’m R Samhitha, a photographer with an obsession for capturing moments that tell a story. Whether it’s a breathtaking landscape, a candid smile, or the magic of city lights at night, I love freezing those moments forever.
+
+My journey into photography started as a hobby, just me and a basic camera, exploring the streets and clicking random things. Fast forward a few years, and now I can’t imagine life without my camera (or at least my phone’s camera when I’m on the go!).
+
+I specialize in:
+📸 Portraits – Capturing real emotions and personalities.
+🌆 Street & Urban Photography – Finding beauty in everyday moments.
+🌿 Nature & Landscape – Because nothing beats the beauty of nature.
+🎉 Events & Lifestyle – From birthdays to weddings, I love documenting happiness.
+
+For me, photography is more than just pictures; it’s about storytelling. I love the challenge of finding the perfect angle, the right light, and that one shot that makes people feel something.
+
+When I’m not behind the lens, you’ll probably find me:
+☕ Trying out new coffee shops.
+🎵 Jamming to my favorite playlist✈️ Planning my next travel adventure.
+🎬 Watching movies and looking for cinematic inspiration.
+
+My style? It’s a mix of natural, vibrant, and moody tones, depending on the vibe of the moment. I believe that the best photos happen when people are just being themselves.
+
+Over the years, I’ve worked with amazing people, capturing everything from intimate portraits to large-scale events. Every shoot teaches me something new, and I wouldn’t trade this journey for anything.
+
+If you love photography, we’re already friends! Whether you’re looking for a photographer or just want to talk about cameras and creativity, let’s connect.
+
+Feel free to reach out—let’s create something amazing together!
+
+📩 Drop me a message anytime.
+📷 Keep clicking, keep smiling!
+
+</p>
+    </div>
+</section>
+<!-- My Photography Skills Section -->
+<section id="skills" class="about-section">
+    <div class="container">
+        <h2>My Photography Skills</h2>
+        <p>Photography is not just about clicking pictures—it's about capturing emotions, moments, and stories. Here are some of the key areas where I specialize:</p>
+        
+        <div class="progress mb-3">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 90%;">Portrait Photography - 90%</div>
+        </div>
+        <div class="progress mb-3">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 85%;">Nature & Landscape - 85%</div>
+        </div>
+        <div class="progress mb-3">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 80%;">Street & Urban Photography - 80%</div>
+        </div>
+        <div class="progress mb-3">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%;">Event & Lifestyle Photography - 75%</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="container my-5">
+    <h2 class="text-center">Contact Me</h2>
+    <form class="row g-3">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email">
+        </div>
+        <div class="col-12">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="4"></textarea>
+        </div>
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Contact: rsamhitha123@gmail.com</p>
+    <p>Follow me: <a href="https://www.facebook.com/login.php">Instagram</a> | <a href="https://www.facebook.com/login.php/">Facebook</a></p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

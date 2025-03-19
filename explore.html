@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - Photography Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .gallery img, .cameras img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+        .section-title {
+            margin-top: 50px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Falling animation */
+        .cameras img {
+            position: relative;
+            opacity: 0;
+            animation: fallDown 1.5s ease-in-out forwards;
+        }
+        .cameras img:nth-child(1) { animation-delay: 0.2s; }
+        .cameras img:nth-child(2) { animation-delay: 0.4s; }
+        .cameras img:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fallDown {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+/* Falling animation for Cameras */
+.cameras img {
+    position: relative;
+    opacity: 0;
+    animation: fallDown 1.5s ease-in-out forwards;
+}
+.cameras img:nth-child(1) { animation-delay: 0.2s; }
+.cameras img:nth-child(2) { animation-delay: 0.4s; }
+.cameras img:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fallDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Sliding animation for Explore More Photos */
+.gallery img {
+    position: relative;
+    opacity: 0;
+    animation: slideIn 1.5s ease-in-out forwards;
+}
+.gallery img:nth-child(1) { animation-delay: 0.3s; }
+.gallery img:nth-child(2) { animation-delay: 0.5s; }
+.gallery img:nth-child(3) { animation-delay: 0.7s; }
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+        /* Styled tips section */
+        .tips {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .tips ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tips li {
+            padding: 10px;
+            border-left: 5px solid #007bff;
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .tips li:hover {
+            background: #e2e6ea;
+            border-left-color: #0056b3;
+        }
+
+        .tips strong {
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="photographyportfolio.html">My Photography</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="photographyportfolio.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Explore</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Explore More Photos -->
+    <div class="container mt-4">
+        <h1 class="text-center">Explore More Photos</h1>
+        <div class="row gallery mt-4">
+            <div class="col-md-4"><img src="http://s1.picswalls.com/wallpapers/2014/07/28/maldive-islands-background_121001372_121.jpg" class="img-thumbnail" onclick="showImage('image4.jpg')"></div>
+            <div class="col-md-4"><img src="https://www.expatsholidays.com/wp-content/uploads/2022/06/beach-in-Thailand.jpeg" onclick="showImage('image5.jpg')"></div>
+            <div class="col-md-4"><img src="https://media.cntraveler.com/photos/57641b5c26e42e3407c1eb79/master/pass/coastal-spain-ibiza-GettyImages-136366739.jpg" class="img-thumbnail" onclick="showImage('image6.jpg')"></div>
+        </div>
+    </div>
+
+    <!-- Cameras I Used -->
+    <div class="container">
+        <h2 class="section-title">Cameras I Used</h2>
+        <div class="row cameras mt-4">
+            <div class="col-md-4"><img src="https://reganbaroni.com/wp-content/uploads/2020/05/best-camera-food-photography-2.jpg" class="img-thumbnail" onclick="showImage('camera1.jpg')"></div>
+            <div class="col-md-4"><img src="https://expertphotography.b-cdn.net/wp-content/uploads/2022/11/camera-for-foood-photography.jpeg" class="img-thumbnail" onclick="showImage('camera2.jpg')"></div>
+            <div class="col-md-4"><img src="https://tse3.mm.bing.net/th?id=OIP.pRaEEOcz4lySEjU3gKyI8AHaEK&pid=Api&P=0&h=180" class="img-thumbnail" onclick="showImage('camera3.jpg')"></div>
+        </div>
+    </div>
+
+    <!-- Photography Tips -->
+    <div class="container mt-5">
+        <h2 class="section-title">Tips to Click Stunning Photos</h2>
+        <div class="tips">
+            <ul>
+                <li><strong>Lighting Matters:</strong> The best natural lighting is during golden hours (early morning and late afternoon).</li>
+                <li><strong>Rule of Thirds:</strong> Divide your frame into 9 sections and place your subject at intersections for better composition.</li>
+                <li><strong>Use Leading Lines:</strong> Roads, fences, or rivers can guide the viewer’s eyes to the subject.</li>
+                <li><strong>Adjust Focus and Depth:</strong> Use a wide aperture for portraits (blurred background) and a narrow aperture for landscapes.</li>
+                <li><strong>Experiment with Angles:</strong> Try different angles, like low-angle or bird’s-eye view, to create unique perspectives.</li>
+                <li><strong>Edit Smartly:</strong> Enhance contrast, sharpness, and brightness without over-processing.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2025 My Photography | <a href="https://www.instagram.com/">Instagram</a> | <a href="https://www.facebook.com/">Facebook</a></p>
+    </footer>
+
+    <script>
+        function showImage(imagePath) {
+            document.getElementById('modalImage').src = imagePath;
+            var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            myModal.show();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
